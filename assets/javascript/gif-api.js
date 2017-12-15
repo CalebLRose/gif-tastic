@@ -36,11 +36,17 @@ $(document).ready(function(){
 				var rating = results[j].rating;
 				var p = $("<p>").text("Rating: "+rating);
 				var gifImage = $("<img>");
+				gifImage.addClass("sources");
 				gifImage.attr("src", results[j].images.fixed_width_still.url);
+				gifImage.attr("data-state", "still");
+				gifImage.attr("data-still", results[j].images.fixed_width_still.url);
+				gifImage.attr("data-play", results[j].images.fixed_width.url);
 				gifsDiv.prepend(p);
 				gifsDiv.prepend(gifImage);
 				$("#gifs").prepend(gifsDiv);
+
 			};
+			
 		})
 	};
 
@@ -60,5 +66,22 @@ $(document).ready(function(){
 		btn = input;
 		addBtn();
 	});	
+
+		$(document).on("click","img.sources",function(){
+		var $img = $(this);
+		console.log(this);
+		var state = $img.attr("data-state");
+		var pause = $img.attr("data-still");
+        var move = $img.attr("data-play");
+        if (state === "still"){
+          $img.attr("src",move);
+          $img.attr("data-state", "play");
+          console.log("start: "+state);
+        } else {
+          $img.attr("src", pause);
+          $img.attr("data-state", "still");
+          console.log("stop: "+state);
+        };
+	});
 
 })
