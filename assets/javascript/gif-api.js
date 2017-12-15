@@ -2,12 +2,22 @@ $(document).ready(function(){
 
 	var q = "";
 	var btnArray = ["boomerang","astros","synthesizer","cats"];
-	var x = 0;
+	var btn;
+	// var x = 0;
 
+	function addBtn(){
+		var myBtn = $("<button>"+btn+"</button>");
+		myBtn.addClass("my-btns");
+		$("#premade-buttons").append(myBtn);
+	}
+	
 	for (var i=0;i<btnArray.length;i++){
-		$("#premade-buttons").append("<button id= btn-"+x+">"+btnArray[i]+"</button>");
-		$("button").addClass("my-btns");
-		x++;
+		btn = btnArray[i];
+		addBtn();
+		// var myBtn = $("<button id=btn-"+i+">"+btnArray[i]+"</button>");
+		// console.log(btnArray[i]);
+		// myBtn.addClass("my-btns");
+		// $("#premade-buttons").append(myBtn);
 	};
 
 	function search(){
@@ -21,6 +31,14 @@ $(document).ready(function(){
 			console.log(response);
 		})
 	};
+
+	$("#new-gif").on("click",function(event){
+		event.preventDefault();
+		var input = $("input").val().trim();
+		console.log(input);
+		btn = input;
+		addBtn();
+	});
 
 	search();
 

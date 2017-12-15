@@ -8,19 +8,35 @@
 	<script type="text/javascript" src="assets/javascript/gif-api.js"></script>
 </head>
 <body>
+	<div class="container">
 
-	<div id="heading">
-		<div>
-			<img src="">
-		</div>
-		<div>
-			<p>powered by giphy</p>
-		</div>
-	</div>
+		<nav class="navbar navbar-light bg-light">
+  			<a class="navbar-brand" href="#">
+	    		<img src="/assets/images/giphyIcon.png" width="40" height="40" class="d-inline-block align-top" alt="">
+	    		Powered by Giphy
+  			</a>
+		</nav>
 
-	<div id="premade-buttons">
+		<div class="row">
+			<div class="col-md-9 col-sm-9">
+				<div id="premade-buttons"></div>
+				<div class="col-lg-9">
+					<div class="gifs">
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<form id="add-btns">
+					<input type="text" name="makeOne">
+					<br><br>
+					<button type="submit" id="new-gif">Gif Me</button>
+				</form>
+			</div>
+		</div>
+
 		
 	</div>
-
+		
 </body>
 </html>
