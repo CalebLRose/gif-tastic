@@ -1,24 +1,20 @@
 $(document).ready(function(){
 
 	var q = "";
-	var btnArray = ["boomerang","astros","synthesizer","cats"];
+	var btnArray = ["boomerang","astros","music","cats","coffee"];
 	var btn;
 	var offset;
 	// var x = 0;
 
 	function addBtn(){
 		var myBtn = $("<button>"+btn+"</button>");
-		myBtn.addClass("my-btns");
+		myBtn.addClass("my-btns mx-1 btn btn-sm btn-outline-info");
 		$("#premade-buttons").append(myBtn);
 	}
 	
 	for (i=0;i<btnArray.length;i++){
 		btn = btnArray[i];
 		addBtn();
-		// var myBtn = $("<button id=btn-"+i+">"+btnArray[i]+"</button>");
-		// console.log(btnArray[i]);
-		// myBtn.addClass("my-btns");
-		// $("#premade-buttons").append(myBtn);
 	};
 
 	function search(){
@@ -35,7 +31,7 @@ $(document).ready(function(){
 				var gifsDiv = $("<div class='item'>");
 				var rating = results[j].rating;
 				var p = $("<p>").text("Rating: "+rating);
-				var gifImage = $("<img>");
+				var gifImage = $("<img class='m-5'>");
 				gifImage.addClass("sources");
 				gifImage.attr("src", results[j].images.fixed_width_still.url);
 				gifImage.attr("data-state", "still");
